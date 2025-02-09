@@ -70,6 +70,20 @@ function Install-Jabba {
     }
 }
 
+# Check if the path is absolute
+if (-not [System.IO.Path]::IsPathRooted($jsonPath)) {
+    $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
+
+    $jsonPath = Join-Path -Path $scriptDir -ChildPath $jsonPath
+}
+
+if (Test-Path $jsonPath) {
+    $jsonPath = Convert-Path $jsonPath
+}
+else {
+    Write-Warning "File does not exist, using resolved path: $jsonPath"
+}
+
 Install-Choco
 
 Install-Jabba
@@ -100,7 +114,11 @@ else {
     Write-Host "Java 21 is already installed."
 }
 
-[System.Environment]::SetEnvironmentVariable("JAVA_HOME", "$($env:USERPROFILE)\.jabba\jdk\$javaVersion", "Machine")
+$envRegKey = [Microsoft.Win32.Registry]::LocalMachine.OpenSubKey('SYSTEM\CurrentControlSet\Control\Session Manager\Environment', $true)
+$envPath = $envRegKey.GetValue('Path', $null, "DoNotExpandEnvironmentNames").replace('%JAVA_HOME%\bin;', '')
+[Environment]::SetEnvironmentVariable('JAVA_HOME', "$(jabba which $(jabba current))", 'Machine')
+[Environment]::SetEnvironmentVariable('PATH', "%JAVA_HOME%\bin;$envPath", 'Machine')
+
 
 # Refresh environment variables to recognize java without restarting
 $env:JAVA_HOME = [Environment]::GetEnvironmentVariable("JAVA_HOME", "Machine")
@@ -130,3 +148,4 @@ if (-not $dockerProcess) {
 }
 
 Write-Host "All dependencies installed successfully!"
+Start-Sleep -Seconds 10
