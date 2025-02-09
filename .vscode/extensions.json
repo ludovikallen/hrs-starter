@@ -1,0 +1,18 @@
+{
+    "recommendations": [
+        "vscjava.vscode-java-pack",
+        "vmware.vscode-spring-boot",
+        "shengchen.vscode-checkstyle",
+        "vscjava.vscode-java-debug",
+        "ms-azuretools.vscode-docker",
+        "dbaeumer.vscode-eslint",
+        "visualstudioexptteam.vscodeintellicode",
+        "redhat.java",
+        "vscjava.vscode-maven",
+        "vscjava.vscode-spring-boot-dashboard",
+        "bradlc.vscode-tailwindcss",
+        "vaadin.vaadin-vscode",
+        "esbenp.prettier-vscode"
+    ],
+    "unwantedRecommendations": []
+}

@@ -1,0 +1,30 @@
+{
+    "lit-plugin.strict": true,
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "typescript.preferences.includePackageJsonAutoImports": "on",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "always",
+        "source.fixAll": "always"
+    },
+    "eslint.format.enable": false,
+    "java.format.settings.url": "${workspaceFolder}\\checkstyle_formatting.xml",
+    "java.checkstyle.modules": [
+        "${workspaceFolder}\\checkstyle.xml"
+    ],
+    "java.checkstyle.configuration": "${workspaceFolder}\\checkstyle.xml",
+    "java.checkstyle.version": "10.21.2",
+    "java.completion.importOrder": [
+        "static ",
+        "",
+        "#"
+    ],
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },    
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.eol": "\n",
+}

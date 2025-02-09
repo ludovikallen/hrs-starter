@@ -1,0 +1,5 @@
+insert into users (version, id, email, validated, disabled, hashed_password) values (1, '4bacadc3-1bbb-44b9-a2ce-15df81d523b4','user@example.com', true, true, '$2a$10$xdbKoM48VySZqVSU/cSlVeJn0Z04XCZ7KZBjUBC00eKo5uLswyOpe')
+insert into user_roles (user_id, roles) values ('4bacadc3-1bbb-44b9-a2ce-15df81d523b4', 'USER')
+insert into users (version, id, email, validated, disabled, hashed_password) values (1, '4714e147-a5bf-4c47-922a-79acc7aab002','admin@example.com', true, true, '$2a$10$jpLNVNeA7Ar/ZQ2DKbKCm.MuT2ESe.Qop96jipKMq7RaUgCoQedV.') 
+insert into user_roles (user_id, roles) values ('4714e147-a5bf-4c47-922a-79acc7aab002', 'USER')
+insert into user_roles (user_id, roles) values ('4714e147-a5bf-4c47-922a-79acc7aab002', 'ADMIN')

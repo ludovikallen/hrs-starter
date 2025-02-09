@@ -1,0 +1,30 @@
+name: hrs
+services:
+  db:
+    container_name: pg_container_hrs
+    image: postgres:17.2
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: local
+    ports:
+      - "2345:5432"
+    volumes:
+      - local_hrs_pg_data:/var/lib/postgresql/data
+  pgadmin:
+    container_name: pgadmin4_container_hrs
+    image: dpage/pgadmin4:9.0.0
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: postgres
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - local_hrs_pgadmin_data:/var/lib/pgadmin
+    ports:
+      - "2346:80"
+
+volumes:
+  local_hrs_pg_data:
+  local_hrs_pgadmin_data:
