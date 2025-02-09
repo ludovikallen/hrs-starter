@@ -12,7 +12,7 @@
 
 **Spring Boot** – A battle-tested backend framework with powerful capabilities.
 
-**Developer** Experience (DX) – Because programming should be fun
+**Developer Experience (DX)** – Because programming should be fun
 
 ### 🏗 Tech Stack
 
