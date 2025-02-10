@@ -1,0 +1,32 @@
+name: Pull Requests Workflow
+on:
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-java@v4
+              with:
+                  java-version: '21'
+                  distribution: 'temurin'
+
+            - name: Run Checkstyle
+              run: mvn checkstyle:check
+
+            - name: Run the Maven verify phase
+              run: mvn --batch-mode --update-snapshots verify
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: '22'
+                  cache: 'npm'
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Run ESLint
+              run: npx eslint .

@@ -89,7 +89,7 @@
 
 ✅ Add Windows and VSCode local environment script
 
-⏳ Add Github Actions to run on PR
+✅ Add Github Actions to run on PR
 
 ⏳ Add database migration engine
 
